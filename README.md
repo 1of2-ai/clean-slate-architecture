@@ -25,6 +25,7 @@ Every Clean-Slate codebase has three main tiers enforced by the native build gra
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/topology-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/topology-light.svg">
   <img width="100%" alt="Clean-Slate Architecture 3-tier topology: App Shell dispatching down to three sealed slices separated by compiler-enforced bulkhead walls, with opt-in shared kits in libs/ and The Spine at the base." src="assets/topology-light.svg">
 </picture>
 
@@ -32,6 +33,7 @@ Every Clean-Slate codebase has three main tiers enforced by the native build gra
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/layout-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/layout-light.svg">
   <img width="100%" alt="Clean-Slate Architecture standard repository layout: AGENTS.md at the root, app/ (src/, tests/), slices/ (per-domain folders each with SPEC.md, src/, tests/), optional libs/, and spine/ (ports/, design/, optional runtime/, optional facts/)." src="assets/layout-light.svg">
 </picture>
 
