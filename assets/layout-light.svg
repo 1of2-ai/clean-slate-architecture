@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 456" role="img" aria-labelledby="title desc">
+  <title id="title">Clean-Slate Architecture Standard Repository Layout</title>
+  <desc id="desc">Repository structure with a repo/ tree gutter branching into AGENTS.md, app/ (src/, tests/), slices/ (per-domain folders like workspace/ and billing/ each with SPEC.md, src/, tests/), optional libs/, and spine/ (ports/, design/, optional runtime/, optional facts/).</desc>
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .root { font-size: 12px; font-weight: 600; fill: #52525B; }
+      .dir { font-size: 13.5px; font-weight: 600; fill: #18181B; }
+      .dir-inv { font-size: 13.5px; font-weight: 600; fill: #FFFFFF; }
+      .entry { font-size: 12px; font-weight: 500; fill: #27272A; }
+      .entry-inv { font-size: 12px; font-weight: 500; fill: #F4F4F5; }
+      .desc { font-size: 12px; fill: #52525B; }
+      .desc-inv { font-size: 12px; fill: #D4D4D8; }
+      .muted { font-size: 11px; fill: #71717A; }
+    </style>
+  </defs>
+
+  <!-- Root label + file-tree gutter spine -->
+  <text x="2" y="16" class="mono root">repo/</text>
+  <g fill="none" stroke="#C8C8CE" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 10 25 L 10 384 Q 10 390 16 390 L 28 390"/>
+    <path d="M 10 44 Q 10 50 16 50 L 28 50"/>
+    <path d="M 10 111 Q 10 117 16 117 L 28 117"/>
+    <path d="M 10 206 Q 10 212 16 212 L 28 212"/>
+    <path d="M 10 289 Q 10 295 16 295 L 28 295" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- AGENTS.md -->
+  <rect x="36" y="28" width="884" height="44" rx="9" fill="#F4F4F5"/>
+  <text x="56" y="54" class="mono dir">AGENTS.md</text>
+  <text x="296" y="54" class="sans desc">Exact commands and rules linters cannot enforce</text>
+
+  <!-- app/ -->
+  <rect x="36" y="82" width="884" height="70" rx="9" fill="#F4F4F5"/>
+  <text x="56" y="109" class="mono dir">app/</text>
+  <text x="200" y="109" class="mono entry">src/</text>
+  <text x="296" y="109" class="sans desc">Composition root, top-level router, slots, and registries</text>
+  <text x="200" y="133" class="mono entry">tests/</text>
+  <text x="296" y="133" class="sans desc">Cross-slice guarantee journeys and multi-instance isolation</text>
+
+  <!-- slices/ -->
+  <rect x="36" y="162" width="884" height="100" rx="9" fill="#F4F4F5"/>
+  <text x="56" y="189" class="mono dir">slices/</text>
+  <text x="56" y="210" class="mono muted">workspace/</text>
+  <text x="56" y="226" class="mono muted">billing/</text>
+  <text x="200" y="189" class="mono entry">SPEC.md</text>
+  <text x="296" y="189" class="sans desc">Human-owned intent, UX contracts, and invariants</text>
+  <text x="200" y="213" class="mono entry">src/</text>
+  <text x="296" y="213" class="sans desc">Flat files behind one narrow factory entrypoint</text>
+  <text x="200" y="237" class="mono entry">tests/</text>
+  <text x="296" y="237" class="sans desc">Black-box boundary contracts</text>
+
+  <!-- libs/ (optional) -->
+  <rect x="36" y="272" width="884" height="46" rx="9" fill="#ECECEF"/>
+  <text x="56" y="299" class="mono dir">libs/</text>
+  <text x="200" y="299" class="sans muted">optional</text>
+  <text x="296" y="299" class="sans desc">Domain-free kits (UI kit, capability registry, test-support)</text>
+
+  <!-- spine/ -->
+  <rect x="36" y="328" width="884" height="124" rx="9" fill="#27272A"/>
+  <text x="56" y="354" class="mono dir-inv">spine/</text>
+  <text x="200" y="354" class="mono entry-inv">ports/</text>
+  <text x="296" y="354" class="sans desc-inv">Domain-blind I/O interfaces (clock, storage, HTTP, blobs)</text>
+  <text x="200" y="378" class="mono entry-inv">design/</text>
+  <text x="296" y="378" class="sans desc-inv">Tokens, theme, and i18n contracts only (GUI apps)</text>
+  <text x="200" y="402" class="mono entry-inv">runtime/</text>
+  <text x="296" y="402" class="sans desc-inv">Optional EventLog, CausalEnvelope, KeyedStickyStore</text>
+  <text x="200" y="426" class="mono entry-inv">facts/</text>
+  <text x="296" y="426" class="sans desc-inv">Optional per-domain past-tense facts (only if 2+ consumers)</text>
+</svg>

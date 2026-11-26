@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 338" role="img" aria-labelledby="title desc">
+  <title id="title">Clean-Slate Architecture Topology</title>
+  <desc id="desc">Borderless architectural diagram showing App Shell dispatching down to three sealed slices with no lateral imports between them. All three slices depend directly on The Spine; Slices A and B optionally use shared kits in libs/, while headless Slice C bypasses libs/ straight to The Spine.</desc>
+  <defs>
+    <style>
+      .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .title { font-size: 14px; font-weight: 600; letter-spacing: -0.015em; fill: #18181B; }
+      .title-inv { font-size: 14px; font-weight: 600; letter-spacing: -0.015em; fill: #FFFFFF; }
+      .sub { font-size: 12px; fill: #52525B; }
+      .sub-inv { font-size: 12px; fill: #D4D4D8; }
+      .path { font-size: 11px; fill: #71717A; }
+      .path-inv { font-size: 11px; fill: #A1A1AA; }
+    </style>
+  </defs>
+
+  <!-- App Shell -->
+  <rect x="0" y="4" width="920" height="58" rx="9" fill="#F4F4F5"/>
+  <text x="20" y="27" class="sans title">App Shell</text>
+  <text x="900" y="27" text-anchor="end" class="mono path">app/</text>
+  <text x="20" y="46" class="sans sub">Composition root, routing, UI slots, and capability registries</text>
+
+  <!-- Gapped stems + open chevrons: App Shell -> Slices -->
+  <g fill="none" stroke="#8A8A93" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="140" y1="68" x2="140" y2="91"/>
+    <path d="M 136 87 L 140 91 L 144 87"/>
+    <line x1="460" y1="68" x2="460" y2="91"/>
+    <path d="M 456 87 L 460 91 L 464 87"/>
+    <line x1="780" y1="68" x2="780" y2="91"/>
+    <path d="M 776 87 L 780 91 L 784 87"/>
+  </g>
+
+  <!-- Slice A -->
+  <rect x="0" y="98" width="280" height="58" rx="9" fill="#F4F4F5"/>
+  <text x="18" y="121" class="sans title">Slice A</text>
+  <text x="262" y="121" text-anchor="end" class="mono path">slices/a/</text>
+  <text x="18" y="140" class="sans sub">UI slice</text>
+
+  <!-- Sealed divider 1 (no lateral imports) -->
+  <line x1="300" y1="106" x2="300" y2="120" stroke="#E4E4E7" stroke-width="1.2"/>
+  <line x1="296.5" y1="123.5" x2="303.5" y2="130.5" stroke="#A1A1AA" stroke-width="1.25" stroke-linecap="round"/>
+  <line x1="303.5" y1="123.5" x2="296.5" y2="130.5" stroke="#A1A1AA" stroke-width="1.25" stroke-linecap="round"/>
+  <line x1="300" y1="134" x2="300" y2="148" stroke="#E4E4E7" stroke-width="1.2"/>
+
+  <!-- Slice B -->
+  <rect x="320" y="98" width="280" height="58" rx="9" fill="#F4F4F5"/>
+  <text x="338" y="121" class="sans title">Slice B</text>
+  <text x="582" y="121" text-anchor="end" class="mono path">slices/b/</text>
+  <text x="338" y="140" class="sans sub">UI slice</text>
+
+  <!-- Sealed divider 2 (no lateral imports) -->
+  <line x1="620" y1="106" x2="620" y2="120" stroke="#E4E4E7" stroke-width="1.2"/>
+  <line x1="616.5" y1="123.5" x2="623.5" y2="130.5" stroke="#A1A1AA" stroke-width="1.25" stroke-linecap="round"/>
+  <line x1="623.5" y1="123.5" x2="616.5" y2="130.5" stroke="#A1A1AA" stroke-width="1.25" stroke-linecap="round"/>
+  <line x1="620" y1="134" x2="620" y2="148" stroke="#E4E4E7" stroke-width="1.2"/>
+
+  <!-- Slice C (Headless) -->
+  <rect x="640" y="98" width="280" height="58" rx="9" fill="#F4F4F5"/>
+  <text x="658" y="121" class="sans title">Slice C</text>
+  <text x="902" y="121" text-anchor="end" class="mono path">slices/c/</text>
+  <text x="658" y="140" class="sans sub">Headless (bypasses libs)</text>
+
+  <!-- Opt-in Shared Kits -->
+  <rect x="90" y="190" width="420" height="52" rx="9" fill="#ECECEF"/>
+  <text x="108" y="212" class="sans title" font-size="13.5">Shared kits</text>
+  <text x="492" y="212" text-anchor="end" class="mono path">libs/ (opt-in)</text>
+  <text x="108" y="230" class="sans sub" font-size="11.5">UI kits, domain-free libs, dev-only test-support</text>
+
+  <!-- Direct stems + open chevrons: Slices -> Spine -->
+  <g fill="none" stroke="#52525B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="45" y1="162" x2="45" y2="269"/>
+    <path d="M 41 265 L 45 269 L 49 265"/>
+    <line x1="555" y1="162" x2="555" y2="269"/>
+    <path d="M 551 265 L 555 269 L 559 265"/>
+    <line x1="780" y1="162" x2="780" y2="269"/>
+    <path d="M 776 265 L 780 269 L 784 265"/>
+  </g>
+
+  <!-- Opt-in dashed stems + open chevrons: Slices A & B -> libs/ -> Spine -->
+  <g fill="none" stroke="#A1A1AA" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="185" y1="162" x2="185" y2="183" stroke-dasharray="3 3"/>
+    <path d="M 181.5 180 L 185 183.5 L 188.5 180"/>
+    <line x1="415" y1="162" x2="415" y2="183" stroke-dasharray="3 3"/>
+    <path d="M 411.5 180 L 415 183.5 L 418.5 180"/>
+    <line x1="300" y1="248" x2="300" y2="268" stroke-dasharray="3 3"/>
+    <path d="M 296.5 265 L 300 268.5 L 303.5 265"/>
+  </g>
+
+  <!-- The Spine -->
+  <rect x="0" y="276" width="920" height="58" rx="9" fill="#27272A"/>
+  <text x="20" y="299" class="sans title-inv">The Spine</text>
+  <text x="900" y="299" text-anchor="end" class="mono path-inv">spine/</text>
+  <text x="20" y="318" class="sans sub-inv">Domain-blind ports, tokens, and optional EventLog with past-tense facts</text>
+</svg>
