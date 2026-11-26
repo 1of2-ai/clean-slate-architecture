@@ -47,7 +47,7 @@
   <text x="200" y="189" class="mono entry">SPEC.md</text>
   <text x="296" y="189" class="sans desc">Human-owned intent, UX contracts, and invariants</text>
   <text x="200" y="213" class="mono entry">src/</text>
-  <text x="296" y="213" class="sans desc">Flat files behind one narrow factory entrypoint</text>
+  <text x="296" y="213" class="sans desc">1 entrypoint; flat by default, or kernel/ + cells/* at scale</text>
   <text x="200" y="237" class="mono entry">tests/</text>
   <text x="296" y="237" class="sans desc">Black-box boundary contracts</text>
 
